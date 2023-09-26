@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         what-is-your-chu-name
 // @namespace    https://github.com/evnchn/what-is-your-chu-name
-// @version      1.0
+// @version      1.1
 // @description  Custom names for friends on Chunithm net
 // @match        https://chunithm-net-eng.com/mobile/friend/*
 // @downloadURL  https://raw.githubusercontent.com/evnchn/what-is-your-chu-name/main/what-is-your-chu-name.userscript.js
@@ -10,11 +10,35 @@
 
 
 // V1.0: Follow what-is-mai-name V2.2
+// V1.1: Add in the CSS. Should work
 
 
 
 (function () {
     'use strict';
+
+    // Load Chuni required CSS 
+
+    document.head.appendChild(
+        Object.assign(document.createElement('style'), {
+            innerHTML: `
+  
+  .player_classemblem {
+      width: 94px !important;
+  }
+  
+  
+  .friend_btn_block {
+      height: auto !important;
+  }
+  
+  .friend_btn_block > .mt_10 {
+      height: 33px;
+  }`
+        }));
+
+
+
 
     // https://poe.com/s/mpSe59695QC4riWzlbBY
     var regex = /[^A-Za-z0-9\-_.!~*'();\/?:@&=+$,#%]/;
@@ -325,7 +349,7 @@
                 if (input) {
                     var value = input.value;
                     // CHUNI-NEW: no more comment block. Use btn block. 
-                    var friendCommentBlock = block.querySelector('.friend_btn_block'); 
+                    var friendCommentBlock = block.querySelector('.friend_btn_block');
                     if (friendCommentBlock) {
                         // // CHUNI: changed here
                         // Remove existing .what_is_your_chu_name divs
