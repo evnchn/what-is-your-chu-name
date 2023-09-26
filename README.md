@@ -13,6 +13,12 @@ Press `Edit Name` to edit the name.
 
 ![image](https://github.com/evnchn/what-is-your-chu-name/assets/37951241/33142578-74a9-4f07-89f4-d92139fcef9d)
 
+## Additional CSS hotfix for chunithm net
+
+If you have a 🛐 friend, and has a emblem net to his/her name, then for no reason the div containing this emblem has a width of 300px. 
+
+The width has been hard-coded to force it to behave normal. This may bite in a future release, though. 
+
 ## New feature carried over from what-is-mai-name V2
 
 Pay attention to the black header bar in the friends page. 
